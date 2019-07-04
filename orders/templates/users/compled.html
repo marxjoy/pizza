@@ -1,0 +1,40 @@
+﻿{% extends "menu/base.html" %}
+
+
+{% block body %}
+<div class="col-md-6 mb-5">
+      <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Toppings</th>
+        <th>Size</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for item in Cart %}
+      <tr>
+        <td>{{ item.item.get_category_display }}</td>
+        <td>{{ item.item.name }}</td>
+        <td><ol>
+            {% for ig in item.toppings.all %}
+            <li>{{ ig.item }}</li>
+            {% endfor %}
+            </ol>
+        </td>
+        <td>{{ item.size }} </td>
+        <td>{{ item.price }}$</td>
+      </tr>
+    {% endfor %}   
+    </tbody>
+  </table>
+    <h3>Name: <b>{{ user.first_name }} {{ user.last_name }} </b></h3>
+    <h3>Adress: <b>{{ user.email }} </b></h3>
+    <h3>Total price: <b>{{ total_price}} $</b></h3>
+  <a href='{% url 'order' %}' alt='Confirm' title='Confirm order'  class="btn btn-primary form-control">Confirm</a>
+</div>
+{% endblock %}
+    
+ 

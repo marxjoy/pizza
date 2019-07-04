@@ -1,0 +1,51 @@
+﻿{% extends "menu/base.html" %}
+
+{% block body %}
+<div class="col text-center mb-4">
+    <div class="row">
+        <div class="col">
+            <h1>Menu</h1>
+            {% for category in Categories %}
+            <h2> {{ category.1 }} </h2>
+            <table class="table table-striped">
+                <thead>
+                  <tr>        
+                    <th></th>  
+                    {% if category.1 != 'Salad' and category.1 != 'Pasta' %}
+                    <th>Small</th>
+                    <th>Large</th>
+                    {% else %}
+                    <th>Price</th> 
+                    {% endif %}
+                    <th>Add</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for meal in Meals %}
+                    {% if meal.get_category_display == category.1 %}
+                  <tr>
+                    <td>{{ meal.name }}</td>
+                    <td>{% if meal.price %} {{ meal.price }}$ {% endif %}</td>
+                    {% if category.1 != 'Salad' and category.1 != 'Pasta' %}
+                    <td>{% if meal.price_l %} {{ meal.price_l }}$ {% endif %}</td>
+                    {% endif %}
+                    <td><a href='meal_detail/{{ meal.id }}' alt='order' title='Order'><i class="fas fa-shopping-cart"></i></a></td>
+                  </tr>
+                    {% endif %}
+                  {% endfor %}   
+                </tbody>
+              </table>
+            {% endfor %}
+        </div>
+        <div class="col-md-3 card bg-light">
+            <h2>Toppings</h2>
+                {% for topping in Toppings %}
+                <ul class="list-group">
+                    <li class="list-group-item">{{ topping.name }} </li>
+                </ul>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+    

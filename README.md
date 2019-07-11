@@ -22,6 +22,6 @@ Project is created with:
 ## Setup
 To run this project:
 ```
-pip3 install -r requirements.txt
-python manage.py runserver
+$pip3 install -r requirements.txt
+$python manage.py runserver
 ```

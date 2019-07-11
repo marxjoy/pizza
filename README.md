@@ -1,4 +1,5 @@
-#Pizza Ordering System
+# Pizza Ordering System
+#pizza #ordering #system #CS50 #Project 3
 
 ## Table of contents
 * [General info](#general-info)
@@ -6,8 +7,8 @@
 * [Setup](#setup)
 
 ## General info
-Django Project3 form CS50 Web Programming with Python and JavaScript Course
-#pizza #ordering #system #CS50 #Project 3
+Django Project3 from CS50 Web Programming with Python and JavaScript Course
+
 	
 ## Technologies
 Project is created with:
@@ -17,5 +18,5 @@ Project is created with:
 ## Setup
 To run this project:
 
-$ pip3 install -r requirements.txt
-$ python manage.py runserver
+$pip3 install -r requirements.txt
+$python manage.py runserver

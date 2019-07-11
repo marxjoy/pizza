@@ -7,7 +7,11 @@
 * [Setup](#setup)
 
 ## General info
-Django Project3 from CS50 Web Programming with Python and JavaScript Course
+Django Project3 from CS50 Web Programming with Python and JavaScript Course. Project includes:
+* menu and various types of possible ordered items (small vs. large, toppings etc.)
+* adding and removing items from menu using Django Admin
+* registration, login and logout for users(customers)
+* shopping cart
 
 	
 ## Technologies
@@ -17,6 +21,7 @@ Project is created with:
 	
 ## Setup
 To run this project:
-
+```
 $pip3 install -r requirements.txt
 $python manage.py runserver
+```

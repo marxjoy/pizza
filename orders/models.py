@@ -7,6 +7,11 @@ class Topping(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+class SubTopping(models.Model):
+    name = models.CharField(max_length=64)
+    
+    def __str__(self):
+        return f"{self.name}"
 
 class OrderedTopping(models.Model):
     item = models.ForeignKey(Topping, on_delete=models.CASCADE)
@@ -30,7 +35,6 @@ class Meal(models.Model):
                 ('Dinner', 'Dinner Platters')
                ]
     
-    add_cheese_field = models.BooleanField(default=False, editable=False)
     id = models.AutoField(primary_key=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     price_l = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True, verbose_name='Price of Large meal (if exist)') 
@@ -38,26 +42,31 @@ class Meal(models.Model):
     toppings_quantity = models.PositiveSmallIntegerField(blank=True, null=True, verbose_name='Quantity of toppings (if exist)')
     size = models.CharField(choices=SIZE, max_length=10, null=True, blank=True, editable=False)
     category = models.CharField(choices=CATEGORY, max_length=10)
+    add_cheese_field = models.BooleanField(default=False, editable=False)
       
     def __str__(self):
-        return f"Meal: {self.name} Category: {self.category} Size: {self.size} ${self.price}"
+        return f"Meal: {self.name} Category: {self.category}"
    
 
 class OrderedMeal(models.Model):
     id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=64)
     item = models.ForeignKey(Meal, on_delete=models.CASCADE)
     toppings = models.ManyToManyField(OrderedTopping, blank=True, related_name='+')
     size = models.CharField(max_length=5)
-    #add_cheese = models.BooleanField(default=False)
-    price = models.DecimalField(max_digits=5, decimal_places=2) 
+    add_cheese = models.BooleanField(default=False)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+    sub_toppings = models.ManyToManyField(SubTopping, blank=True)
         
     def __str__(self):
-        i = ", ".join(str(seg.item.name) for seg in self.toppings.all())
-        return f"{self.item.name} {self.item.price} Toppings: {i}"
+        j = ", ".join(str(seg.name) for seg in self.sub_toppings.all())
+        if self.add_cheese:
+            i = "Cheese"
+        else:
+            i = ", ".join(str(seg.item.name) for seg in self.toppings.all())
+        return f"{self.item.name} Size: {self.size} {self.item.price} Toppings: {i} {j}"
     
-    
-    
-    
+  
 class Cart(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -66,16 +75,11 @@ class Cart(models.Model):
       
     def __str__(self):
         i = ", ".join(str(seg) for seg in self.items.all())
-    
-        
         if self.is_ordered:
              return f"Order: {self.id} from {self.user}: {i}"
         else:
             return f"Uncompleted order"
-        
-        
-            
-       
+              
     def count_items(self):
         i=0
         for item in self.items.all():
@@ -87,10 +91,3 @@ class Cart(models.Model):
         for item in self.items.all():
             total_price += item.price
         return total_price
-    
-    
-class SubTopping(models.Model):
-    name = models.CharField(max_length=64)
-    
-    def __str__(self):
-        return f"{self.name}"

@@ -19,7 +19,7 @@
     {% for item in Cart %}
       <tr>
         <td>{{ item.item.get_category_display }}</td>
-        <td>{{ item.item.name }}</td>
+        <td>{{ item.name }}</td>
         <td><ol>
             {% for ig in item.toppings.all %}
             <li>{{ ig.item }}</li>

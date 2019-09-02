@@ -1,0 +1,31 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+  <a href="#" class="send">Wyślij</a>
+    
+    <script>
+        const btn = document.querySelector('.send');
+        
+        btn.addEventListener('click', function(e){
+            e.preventDefault()
+            const Http = new XMLHttpRequest();
+            const url = 'https://jsonplaceholder.typicode.com/posts';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=function(){
+                if(this.readyState==4&&this.status==200){
+                    console.log(Http.responseText)
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html> 

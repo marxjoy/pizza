@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+</head>
+<body>
+    <div class="header">ACCOUNT
+        {% if request.user.is_authenticated %}
+        Witaj {{ request.user.username }}
+        <a href="{% url "logout" %}">Wyloguj</a>
+        {% endif %}
+    </div>
+    
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

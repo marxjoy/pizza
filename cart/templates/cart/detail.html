@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block content %}
+
+
+<table class='cart'>
+    <thead>
+        <tr>
+            <th>Meal</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total price</th>
+        </tr>
+    </thead>
+{% for item in cart %}
+{% with meal=item.meal %}
+    <tr>
+        <td>
+            {{ meal.name }}
+            {{ meal.size }} </td>
+        <td>
+            {{ item.price }}
+        </td>
+        <td>
+            {{ item.quantity }}
+        </td>
+          <td>
+            {{ item.total_price }}
+        </td>
+          <td>
+            <a href="{% url "cart:cart_remove" meal.id %}">Remove</a>
+        </td>
+        <td>
+            <a href="{% url "cart:cart_add" meal.id %}">Add</a>
+        </td>
+
+    </tr>
+        
+{% endwith %}
+
+{% endfor %}
+  
+    
+</table>
+
+  <p>get total price:
+    {{ cart.get_total_price }}
+    </p>
+
+{% endblock %}

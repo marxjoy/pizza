@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if category %}
+    <h1>{{ category.name }}</h1>
+    {% for meal in meals %}
+    <p class="meal">{{ meal }} - {{ meal.price }} $</p>
+    {% endfor %}
+{% else %}
+    {% for c in categories %}
+        {% if c.meals.all|length %}
+        <h1 class="category-name"><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></h1>
+            {% for meal in meals %}
+                {% if c.name == meal.category.name %}
+                <p class="meal">{{ meal }} - {{ meal.price }} $</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+
+
+{% endblock %}

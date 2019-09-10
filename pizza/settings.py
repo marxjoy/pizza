@@ -31,7 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'menu.apps.MenuConfig',
     'account.apps.AccountConfig',
+    'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -113,6 +115,8 @@ TIME_ZONE = 'Europe/Warsaw'
 
 STATIC_URL = '/static/'
 
-#LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = 'edit'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+CART_SESSION_ID = 'cart'

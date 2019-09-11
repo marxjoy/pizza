@@ -11,15 +11,17 @@ class Cart:
             cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
     
-    def add(self, meal, quantity=1, update_quantity=False):
+    def add(self, meal, quantity=1, food_additive=None):
+        """
+        Adds meal to Cart
+        """
         meal_id = str(meal.id)
         if meal_id not in self.cart:
             self.cart[meal_id] = {'quantity': 0,
                                   'price': str(meal.price)}
-        if update_quantity:
-            self.cart[meal_id]['quantity'] = quantity
-        else:
-            self.cart[meal_id]['quantity'] += quantity
+        self.cart[meal_id]['quantity'] += quantity
+        if food_additive:
+            self.cart[meal_id]['food_additive'] = food_additive
         self.save()
             
     def save(self):

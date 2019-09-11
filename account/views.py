@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .forms import UserRegistrationForm, UserEditForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth import logout
+
+
 
 def register(request):
     if request.method == 'POST':

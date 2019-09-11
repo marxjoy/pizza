@@ -4,20 +4,29 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body >
+<div class="container">
+
     <div class="header">
         {% if request.user.is_authenticated %}
         <h1>Hello <strong>{{ request.user.username }}</strong>!</h1>
         <a href="{% url "edit" %}">Edit profile</a>
         <a href="{% url "password_change" %}">Change password</a>
         <a href="{% url "logout" %}">Wyloguj</a>
+        <a href="{% url "cart:cart_detail" %}">Cart ({{ cart|length }})  {{ cart.get_total_price }} zł</a>
         {% else %}
         <a href="{% url "register" %}">Register</a>
         <a href="{% url "login" %}">Login</a>
         {% endif %}
         <a href="{% url "menu:meal_list" %}">Menu</a>
-        
+        <a href="{% url "orders:order_status" %}">Orders</a>
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -33,5 +42,6 @@
         {% block content %}
         {% endblock %}
     </div>
+</div>
 </body>
 </html>

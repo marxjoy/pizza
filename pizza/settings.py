@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -115,7 +116,7 @@ TIME_ZONE = 'Europe/Warsaw'
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = 'edit'
+LOGIN_REDIRECT_URL = 'menu:meal_list'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 

@@ -1,12 +1,7 @@
 {% extends "base.html" %}
-
-
 {% block title %}Shopping Cart{% endblock %}
-
 {% block content %}
-
-
-<table class='cart'>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Meal</th>
@@ -18,36 +13,26 @@
 {% for item in cart %}
 {% with meal=item.meal %}
     <tr>
-        <td>
-            {{ meal.name }}
-            {{ meal.size }} </td>
-        <td>
-            {{ item.price }}
-        </td>
-        <td>
-            {{ item.quantity }}
-        </td>
-          <td>
-            {{ item.total_price }}
-        </td>
-          <td>
-            <a href="{% url "cart:cart_remove" meal.id %}">Remove</a>
-        </td>
-        <td>
-            <a href="{% url "cart:cart_add" meal.id %}">Add</a>
-        </td>
-
+        <td>{{ meal.name }}{{ meal.size }} </td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.total_price }}</td>
+        <td><a class="btn btn-primary" href="{% url "cart:cart_remove" meal.id %}">Remove</a></td>
+        <td><a class="btn btn-primary" href="{% url "cart:cart_add" meal.id %}">Add</a></td>
     </tr>
-        
+    {% if item.food_additive %}
+    <tr>
+        <td>Toppings:
+            {{ item.food_additive }}
+        </td>
+    </tr>    
+    {% endif %}       
 {% endwith %}
-
-{% endfor %}
-  
-    
+{% endfor %}  
 </table>
-
-  <p>get total price:
+<p>Total price:
     {{ cart.get_total_price }}
-    </p>
+</p>
 
+<a href="{% url "orders:order_create" %}" class="btn btn-primary">Order</a>
 {% endblock %}

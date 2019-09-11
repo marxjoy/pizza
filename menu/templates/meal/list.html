@@ -1,26 +1,22 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-{% if category %}
-    <h1>{{ category.name }}</h1>
-    {% for meal in meals %}
-    <p class="meal">{{ meal }} - {{ meal.price }} $</p>
-    {% endfor %}
-{% else %}
-    {% for c in categories %}
-        {% if c.meals.all|length %}
-        <h1 class="category-name"><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></h1>
+    {% for category in categories %}
+    <table class="table table-striped">
+        {% if category.meals.all|length %}
+        <h1 class="category-name"><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></h1>
             {% for meal in meals %}
-                {% if c.name == meal.category.name %}
-                <p class="meal">{{ meal }} - {{ meal.price }} $</p>
+                {% if category.name == meal.category.name %}
+
+                    <tr>
+                        <td>{{ meal }}</td>
+                        <td>{{ meal.price }} $</td>
+                        <td><a class="btn btn-primary" href="{% url "cart:cart_add" meal.id %}">ADD</a></td>
+                    </tr>
                 {% endif %}
             {% endfor %}
+       
         {% endif %}
+    </table>
     {% endfor %}
-{% endif %}
-
-
-
-
 {% endblock %}

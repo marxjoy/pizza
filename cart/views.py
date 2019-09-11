@@ -7,8 +7,9 @@ from django.contrib.auth.decorators import login_required
 def cart_add(request, meal_id):
     cart = Cart(request)
     meal = get_object_or_404(Meal, id=meal_id)
+    # tutaj dobór dodatków do pizzy lub subs
     cart.add(meal)
-    return redirect('cart:cart_detail')
+    return redirect('menu:meal_list')
 
 @login_required
 def cart_remove(request, meal_id):
@@ -16,6 +17,7 @@ def cart_remove(request, meal_id):
     meal = get_object_or_404(Meal, id=meal_id)
     cart.remove(meal)
     return redirect('cart:cart_detail')
+    
 
 @login_required
 def cart_detail(request):

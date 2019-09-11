@@ -9,7 +9,8 @@ class Category(models.Model):
                             db_index=True)
     slug = models.SlugField(max_length=200, 
                             db_index=True, 
-                            unique=True)
+                            unique=True,
+                           )
     
     class Meta:
         ordering = ('name',)
@@ -47,6 +48,6 @@ class Meal(models.Model):
         index_together = (('id', 'slug'),)
         
     def __str__(self):
-        return self.name + ' ' + self.size
+        return '{} {}'.format(self.name, self.size)
     
 

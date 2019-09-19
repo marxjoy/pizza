@@ -2,8 +2,13 @@ from django.db import models
 from django.urls import reverse
 
 class Topping(models.Model):
-    pass 
+    name = models.CharField(max_length=200,
+                            db_index=True)
+    
+    def __str__(self):
+        return self.name
 
+    
 class Category(models.Model):
     name = models.CharField(max_length=200, 
                             db_index=True)
@@ -50,4 +55,6 @@ class Meal(models.Model):
     def __str__(self):
         return '{} {}'.format(self.name, self.size)
     
+    def get_absolute_url(self):
+        return reverse('menu:meal_detail', args=[self.id, self.slug])
 

@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Category, Meal
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Category, Meal, Topping
+from .forms import MealQuantityForm, MealAdditivesCheeseForm
 
 def meal_list(request, category_slug=None):
     category = None
@@ -16,5 +17,17 @@ def meal_list(request, category_slug=None):
                   }
                  )
 
+def meal_detail(request, meal_id, meal_slug):
+    meal = get_object_or_404(Meal, id=meal_id, slug=meal_slug)
+    
+    forms = [MealQuantityForm()]
+    if meal.category.name == 'Subs':
+        forms.append(MealAdditivesCheeseForm())
+
+    return render(request, 
+                  'meal/detail.html',
+                 {'meal': meal,
+                  'forms': forms,
+                 })
 
 

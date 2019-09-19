@@ -1,11 +1,11 @@
 from django.db import models
 from menu.models import Meal
+from django.contrib.auth.models import User
 
 class Order(models.Model):
-    username = models.CharField(max_length=50)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
+    user = models.ForeignKey(User, 
+                             related_name='orders', 
+                             on_delete=models.CASCADE)
     completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     
@@ -34,3 +34,14 @@ class OrderItem(models.Model):
     
     def get_cost(self):
         return self.price * self.quantity
+    
+
+class OrderItemAdditive(models.Model):
+    meal = models.ForeignKey(OrderItem,
+                             related_name='additive',
+                            on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    
+    
+    
+    

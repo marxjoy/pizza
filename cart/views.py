@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 def cart_add(request, meal_id):
     cart = Cart(request)
     meal = get_object_or_404(Meal, id=meal_id)
-    # tutaj dobór dodatków do pizzy lub subs
     cart.add(meal)
     return redirect('menu:meal_list')
 

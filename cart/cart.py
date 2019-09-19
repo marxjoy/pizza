@@ -11,17 +11,22 @@ class Cart:
             cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
     
-    def add(self, meal, quantity=1, food_additive=None):
+    def add(self, meal, quantity=1):
         """
         Adds meal to Cart
         """
         meal_id = str(meal.id)
         if meal_id not in self.cart:
             self.cart[meal_id] = {'quantity': 0,
-                                  'price': str(meal.price)}
+                                  'price': str(meal.price),
+                                  'additive': None}
+            
         self.cart[meal_id]['quantity'] += quantity
-        if food_additive:
-            self.cart[meal_id]['food_additive'] = food_additive
+        self.save()
+    
+    def add_additive(self, meal, additive):
+        meal_id = str(meal.id)
+        self.cart[meal_id]['additive'] = additive
         self.save()
             
     def save(self):
@@ -47,6 +52,7 @@ class Cart:
         for item in cart.values():
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
+            item['additive'] = item['additive']
             yield item
         
     def __len__(self):

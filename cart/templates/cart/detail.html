@@ -31,8 +31,10 @@
 {% endfor %}  
 </table>
 <p>Total price:
-    {{ cart.get_total_price }}
+    {{ cart.get_total_price }} $
 </p>
+{% if cart|length %}
+<a href="{% url "orders:order_create" %}" class="btn btn-primary">Confirm order</a>
+{% endif %}
 
-<a href="{% url "orders:order_create" %}" class="btn btn-primary">Order</a>
 {% endblock %}

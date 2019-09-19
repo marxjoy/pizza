@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+{% block title %}Pizzeria Menu{% endblock %}
 {% block content %}
-
+<div class="row">
+    <div class="col">
     {% for category in categories %}
     <table class="table table-striped">
         {% if category.meals.all|length %}
@@ -11,12 +13,28 @@
                     <tr>
                         <td>{{ meal }}</td>
                         <td>{{ meal.price }} $</td>
-                        <td><a class="btn btn-primary" href="{% url "cart:cart_add" meal.id %}">ADD</a></td>
+                        <td><a class="btn btn-primary" href="{{ meal.get_absolute_url }}">ADD</a></td>                     
                     </tr>
                 {% endif %}
             {% endfor %}
-       
         {% endif %}
     </table>
     {% endfor %}
+    </div>
+    {% if cart|length %}
+    <div class="col-3 bg-light">
+        <h1>Your cart:</h1>
+        <ul>
+        {% for item in cart %}
+            {% with meal=item.meal %}
+            <li>{{ item.quantity }} x {{ meal.name }} {{ meal.size }}</li>
+        {% endwith %}
+        {% endfor %}
+        </ul>
+        <p>Total price: {{ cart.get_total_price }} $</p>
+        <a class="btn btn-primary" href="{% url "cart:cart_detail" %}">Order</a>
+    </div>
+    {% endif %}    
+</div>
+
 {% endblock %}

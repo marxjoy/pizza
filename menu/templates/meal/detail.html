@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Pizzeria Menu{% endblock %}
+{% block content %}
+
+<h1>{{ meal }}</h1>
+<p>{{ meal.name }} {{ meal.size }}</p>
+<p>Price: {{ meal.price }} $</p>
+
+<form action="{% url "cart:cart_add" meal.id %}" method="post">
+{% for form in forms %}
+{{ form.as_p }}
+{% endfor %}
+{% csrf_token %}
+<input class="btn btn-primary" type="submit" value="Add to cart">
+</form>
+
+
+{% endblock %}

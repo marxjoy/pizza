@@ -2,7 +2,7 @@
 {% block title %}Registration{% endblock %}
 
 {% block content %}
-<h1> New user <strong>{{ new_user.username }}</strong> created. </h1>
-<a class="btn btn-primary" href="{% url "login" %}">Login</a>
-    {% endblock %}
+    <h1><strong>{{ new_user.username }}</strong> created.</h1>
+    <a class="btn btn-primary" href="{% url "login" %}">Login</a>
+{% endblock %}
     

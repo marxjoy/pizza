@@ -2,11 +2,11 @@ from django.shortcuts import render
 from .forms import UserRegistrationForm, UserEditForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth import logout
-
-
 
 def register(request):
+    """
+    Register new User view
+    """
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -25,9 +25,11 @@ def register(request):
                  'register/register.html',
                  {'user_form': user_form})
 
-
 @login_required
 def edit(request):
+    """
+    Edit User view
+    """
     if request.method == 'POST':
         user_form = UserEditForm(instance=request.user,
                                 data=request.POST)

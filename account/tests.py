@@ -59,5 +59,5 @@ class test_account_module(TestCase):
         
     def test_login_content(self):
         response = self.client.get(reverse('login'))
-        self.assertIn(b'Logowanie', response.content)
+        self.assertIn(b'Login', response.content)
         

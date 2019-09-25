@@ -1,14 +1,12 @@
 from django.contrib import admin
 from .models import Order, OrderItem
 
-class OrderItemInline(admin.TabularInline):
+class VillainInline(admin.StackedInline):
     model = OrderItem
 
-
+@admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'created', 'completed', 'get_total_cost' ]
-    list_filter = ['completed',]
+    list_display = ['id', 'user', 'created', 'completed', 'get_total_cost']
+    list_filter = ['completed', ]
     list_editable = ['completed', ]
-    inlines = [OrderItemInline]
-
-admin.site.register(Order, OrderAdmin)
+    inlines = [VillainInline]

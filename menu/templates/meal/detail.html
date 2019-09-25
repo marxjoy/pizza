@@ -1,18 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Pizzeria Menu{% endblock %}
+{% block title %}Pizzeria Menu - {{ meal.category }} {{ meal.name }} {% endblock %}
+
 {% block content %}
-
-<h1>{{ meal }}</h1>
-<p>{{ meal.name }} {{ meal.size }}</p>
-<p>Price: {{ meal.price }} $</p>
-
-<form action="{% url "cart:cart_add" meal.id %}" method="post">
-{% for form in forms %}
-{{ form.as_p }}
-{% endfor %}
-{% csrf_token %}
-<input class="btn btn-primary" type="submit" value="Add to cart">
-</form>
-
-
+    <h1>{{ meal.name }}</h1>
+    <p>{{ meal.category }}</p>
+    <p>{% if meal.price_s != None %}Small: {{ meal.price_s }} ${% endif %}</p>
+    <p>{% if meal.price_l != None %}Large: {{ meal.price_l }} ${% endif %}</p>
+    <form action="{% url "cart:cart_add" %}" method="post">
+        {% for form in forms %}
+            {{ form.as_p }}
+        {% endfor %}
+        {% csrf_token %}
+        <input type="hidden" name="meal_name" value="{{ meal.category }} {{ meal.name }}">
+        {% if meal.price_s != None %}
+            <input type="hidden" name="price_s" value="{{ meal.price_s }}">
+        {% endif %}
+        {% if meal.price_l != None %}
+            <input type="hidden" name="price_l" value="{{ meal.price_l }}">
+        {% endif %}
+        <input class="btn btn-primary" type="submit" value="Add to cart">
+    </form>
 {% endblock %}

@@ -1,40 +1,28 @@
 {% extends "base.html" %}
 {% block title %}Shopping Cart{% endblock %}
-{% block content %}
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Meal</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total price</th>
-        </tr>
-    </thead>
-{% for item in cart %}
-{% with meal=item.meal %}
-    <tr>
-        <td>{{ meal.name }}{{ meal.size }} </td>
-        <td>{{ item.price }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.total_price }}</td>
-        <td><a class="btn btn-primary" href="{% url "cart:cart_remove" meal.id %}">Remove</a></td>
-        <td><a class="btn btn-primary" href="{% url "cart:cart_add" meal.id %}">Add</a></td>
-    </tr>
-    {% if item.food_additive %}
-    <tr>
-        <td>Toppings:
-            {{ item.food_additive }}
-        </td>
-    </tr>    
-    {% endif %}       
-{% endwith %}
-{% endfor %}  
-</table>
-<p>Total price:
-    {{ cart.get_total_price }} $
-</p>
-{% if cart|length %}
-<a href="{% url "orders:order_create" %}" class="btn btn-primary">Confirm order</a>
-{% endif %}
 
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Meal</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total price</th>
+            </tr>
+        </thead>
+        {% for item in cart %}
+        <tr>
+            <td><strong>{{ item.meal }}</strong></td>
+            <td>{{ item.price }} $</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price }} $</td>
+            <td><a class="btn btn-primary" href="{% url 'cart:cart_remove' item.id %}">Remove</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+        <p>Total price: {{ cart.get_total_price }} $</p>
+    {% if cart|length %}
+        <a href="{% url 'orders:order_create' %}" class="btn btn-primary">Confirm order</a>
+    {% endif %}
 {% endblock %}

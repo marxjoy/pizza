@@ -1,0 +1,773 @@
+[
+{
+  "model": "menu.meal",
+  "pk": 1,
+  "fields": {
+    "name": "Cheese",
+    "slug": "cheese",
+    "price_s": "12.20",
+    "price_l": "17.45"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 2,
+  "fields": {
+    "name": "1 topping",
+    "slug": "1-topping",
+    "price_s": "13.20",
+    "price_l": "19.45"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 3,
+  "fields": {
+    "name": "2 toppings",
+    "slug": "2-toppings",
+    "price_s": "14.70",
+    "price_l": "21.45"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 4,
+  "fields": {
+    "name": "3 toppings",
+    "slug": "3-toppings",
+    "price_s": "15.70",
+    "price_l": "23.45"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 5,
+  "fields": {
+    "name": "Special",
+    "slug": "special",
+    "price_s": "17.25",
+    "price_l": "25.45"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 6,
+  "fields": {
+    "name": "Cheese",
+    "slug": "cheese",
+    "price_s": "23.45",
+    "price_l": "37.70"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 7,
+  "fields": {
+    "name": "1 item",
+    "slug": "1-item",
+    "price_s": "25.45",
+    "price_l": "39.70"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 8,
+  "fields": {
+    "name": "2 items",
+    "slug": "2-items",
+    "price_s": "27.45",
+    "price_l": "41.70"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 9,
+  "fields": {
+    "name": "3 items",
+    "slug": "3-items",
+    "price_s": "28.45",
+    "price_l": "43.70"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 10,
+  "fields": {
+    "name": "Special",
+    "slug": "special",
+    "price_s": "29.45",
+    "price_l": "44.70"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 11,
+  "fields": {
+    "name": "Cheese",
+    "slug": "cheese",
+    "price_s": "6.50",
+    "price_l": "7.93"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 12,
+  "fields": {
+    "name": "Italian",
+    "slug": "italian",
+    "price_s": "6.50",
+    "price_l": "7.95"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 13,
+  "fields": {
+    "name": "Ham + Cheese",
+    "slug": "ham-cheese",
+    "price_s": "6.50",
+    "price_l": "7.95"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 14,
+  "fields": {
+    "name": "Meatball",
+    "slug": "meatball",
+    "price_s": "6.50",
+    "price_l": "7.95"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 15,
+  "fields": {
+    "name": "Tuna",
+    "slug": "tuna",
+    "price_s": "6.50",
+    "price_l": "7.95"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 16,
+  "fields": {
+    "name": "Turkey",
+    "slug": "turkey",
+    "price_s": "7.50",
+    "price_l": "8.49"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 17,
+  "fields": {
+    "name": "Chicken Parmigiana",
+    "slug": "chicken-parmigiana",
+    "price_s": "7.50",
+    "price_l": "8.50"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 18,
+  "fields": {
+    "name": "Steak",
+    "slug": "steak",
+    "price_s": "6.50",
+    "price_l": "7.95"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 19,
+  "fields": {
+    "name": "Steak + Cheese",
+    "slug": "steak-cheese",
+    "price_s": "6.95",
+    "price_l": "8.50"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 20,
+  "fields": {
+    "name": "Sausage, Peppers & Onions",
+    "slug": "sausage-peppers-onions",
+    "price_s": null,
+    "price_l": "8.50"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 21,
+  "fields": {
+    "name": "Hamburger",
+    "slug": "hamburger",
+    "price_s": "4.60",
+    "price_l": "6.95"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 22,
+  "fields": {
+    "name": "Cheeseburger",
+    "slug": "cheeseburger",
+    "price_s": "5.10",
+    "price_l": "7.45"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 23,
+  "fields": {
+    "name": "Fried Chicken",
+    "slug": "fried-chicken",
+    "price_s": "6.95",
+    "price_l": "8.50"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 24,
+  "fields": {
+    "name": "Veggie",
+    "slug": "veggie",
+    "price_s": "6.95",
+    "price_l": "8.50"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 25,
+  "fields": {
+    "name": "Baked Ziti w/Mozzarella",
+    "slug": "baked-ziti-wmozzarella",
+    "price_s": null,
+    "price_l": "6.50"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 26,
+  "fields": {
+    "name": "Baked Ziti w/Meatballs",
+    "slug": "baked-ziti-wmeatballs",
+    "price_s": null,
+    "price_l": "8.75"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 27,
+  "fields": {
+    "name": "Baked Ziti w/Chicken",
+    "slug": "baked-ziti-wchicken",
+    "price_s": null,
+    "price_l": "9.75"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 28,
+  "fields": {
+    "name": "Garden Salad",
+    "slug": "garden-salad",
+    "price_s": null,
+    "price_l": "6.25"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 29,
+  "fields": {
+    "name": "Greek Salad",
+    "slug": "greek-salad",
+    "price_s": null,
+    "price_l": "8.25"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 30,
+  "fields": {
+    "name": "Antipasto",
+    "slug": "antipasto",
+    "price_s": null,
+    "price_l": "8.25"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 31,
+  "fields": {
+    "name": "Salad w/Tuna",
+    "slug": "salad-wtuna",
+    "price_s": null,
+    "price_l": "8.25"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 32,
+  "fields": {
+    "name": "Garden Salad",
+    "slug": "garden-salad",
+    "price_s": "35.00",
+    "price_l": "60.00"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 33,
+  "fields": {
+    "name": "Greek Salad",
+    "slug": "greek-salad",
+    "price_s": "45.00",
+    "price_l": "70.00"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 34,
+  "fields": {
+    "name": "Antipasto",
+    "slug": "antipasto",
+    "price_s": "45.00",
+    "price_l": "70.00"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 35,
+  "fields": {
+    "name": "Baked Ziti",
+    "slug": "baked-ziti",
+    "price_s": "35.00",
+    "price_l": "59.99"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 36,
+  "fields": {
+    "name": "Meatball Parm",
+    "slug": "meatball-parm",
+    "price_s": "45.00",
+    "price_l": "70.00"
+  }
+},
+{
+  "model": "menu.meal",
+  "pk": 37,
+  "fields": {
+    "name": "Chicken Parm",
+    "slug": "chicken-parm",
+    "price_s": "45.00",
+    "price_l": "80.00"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 1,
+  "fields": {
+    "name": "Pepperoni"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 2,
+  "fields": {
+    "name": "Sausage"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 3,
+  "fields": {
+    "name": "Mushrooms"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 4,
+  "fields": {
+    "name": "Onions"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 5,
+  "fields": {
+    "name": "Ham"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 6,
+  "fields": {
+    "name": "Canadian Bacon"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 7,
+  "fields": {
+    "name": "Pinapple"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 8,
+  "fields": {
+    "name": "Eggplant"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 9,
+  "fields": {
+    "name": "Tomato & Basil"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 10,
+  "fields": {
+    "name": "Green Peppers"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 11,
+  "fields": {
+    "name": "Hamburger"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 12,
+  "fields": {
+    "name": "Spinach"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 13,
+  "fields": {
+    "name": "Artichoke"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 14,
+  "fields": {
+    "name": "Buffalo Chicken"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 15,
+  "fields": {
+    "name": "Barbecue Chicken"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 16,
+  "fields": {
+    "name": "Anchovies"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 17,
+  "fields": {
+    "name": "Black Olives"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 18,
+  "fields": {
+    "name": "Fresh Garlic"
+  }
+},
+{
+  "model": "menu.pizzatopping",
+  "pk": 19,
+  "fields": {
+    "name": "Zucchini"
+  }
+},
+{
+  "model": "menu.subtopping",
+  "pk": 1,
+  "fields": {
+    "name": "Mushrooms"
+  }
+},
+{
+  "model": "menu.subtopping",
+  "pk": 2,
+  "fields": {
+    "name": "Green Peppers"
+  }
+},
+{
+  "model": "menu.subtopping",
+  "pk": 3,
+  "fields": {
+    "name": "Onions"
+  }
+},
+{
+  "model": "menu.sicilianpizza",
+  "pk": 6,
+  "fields": {
+    "toppings_quantity": 0
+  }
+},
+{
+  "model": "menu.sicilianpizza",
+  "pk": 7,
+  "fields": {
+    "toppings_quantity": 1
+  }
+},
+{
+  "model": "menu.sicilianpizza",
+  "pk": 8,
+  "fields": {
+    "toppings_quantity": 2
+  }
+},
+{
+  "model": "menu.sicilianpizza",
+  "pk": 9,
+  "fields": {
+    "toppings_quantity": 3
+  }
+},
+{
+  "model": "menu.sicilianpizza",
+  "pk": 10,
+  "fields": {
+    "toppings_quantity": 5
+  }
+},
+{
+  "model": "menu.regularpizza",
+  "pk": 1,
+  "fields": {
+    "toppings_quantity": 0
+  }
+},
+{
+  "model": "menu.regularpizza",
+  "pk": 2,
+  "fields": {
+    "toppings_quantity": 1
+  }
+},
+{
+  "model": "menu.regularpizza",
+  "pk": 3,
+  "fields": {
+    "toppings_quantity": 2
+  }
+},
+{
+  "model": "menu.regularpizza",
+  "pk": 4,
+  "fields": {
+    "toppings_quantity": 3
+  }
+},
+{
+  "model": "menu.regularpizza",
+  "pk": 5,
+  "fields": {
+    "toppings_quantity": 5
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 11,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 12,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 13,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 14,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 15,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 16,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 17,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 18,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 19,
+  "fields": {
+    "toppings_are_available": true,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 20,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 21,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 22,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 23,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.sub",
+  "pk": 24,
+  "fields": {
+    "toppings_are_available": false,
+    "extra_cheese_available": true
+  }
+},
+{
+  "model": "menu.pasta",
+  "pk": 25,
+  "fields": {}
+},
+{
+  "model": "menu.pasta",
+  "pk": 26,
+  "fields": {}
+},
+{
+  "model": "menu.pasta",
+  "pk": 27,
+  "fields": {}
+},
+{
+  "model": "menu.salad",
+  "pk": 28,
+  "fields": {}
+},
+{
+  "model": "menu.salad",
+  "pk": 29,
+  "fields": {}
+},
+{
+  "model": "menu.salad",
+  "pk": 30,
+  "fields": {}
+},
+{
+  "model": "menu.salad",
+  "pk": 31,
+  "fields": {}
+},
+{
+  "model": "menu.dinnerplatter",
+  "pk": 32,
+  "fields": {}
+},
+{
+  "model": "menu.dinnerplatter",
+  "pk": 33,
+  "fields": {}
+},
+{
+  "model": "menu.dinnerplatter",
+  "pk": 34,
+  "fields": {}
+},
+{
+  "model": "menu.dinnerplatter",
+  "pk": 35,
+  "fields": {}
+},
+{
+  "model": "menu.dinnerplatter",
+  "pk": 36,
+  "fields": {}
+},
+{
+  "model": "menu.dinnerplatter",
+  "pk": 37,
+  "fields": {}
+}
+]

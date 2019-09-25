@@ -1,40 +1,66 @@
 {% extends "base.html" %}
 {% block title %}Pizzeria Menu{% endblock %}
+
 {% block content %}
 <div class="row">
     <div class="col">
-    {% for category in categories %}
-    <table class="table table-striped">
-        {% if category.meals.all|length %}
-        <h1 class="category-name"><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></h1>
+    {% for category, meals in meals_by_categories.items %}
+        {% if meals|length > 0 %}
+        <h1>{{ category }}</h1>
+        <table class="table">
+                <thead>
+                    <td>Meal</td>
+                    <td>Small</td>
+                    <td>Large</td>
+                </thead>
             {% for meal in meals %}
-                {% if category.name == meal.category.name %}
-
-                    <tr>
-                        <td>{{ meal }}</td>
-                        <td>{{ meal.price }} $</td>
-                        <td><a class="btn btn-primary" href="{{ meal.get_absolute_url }}">ADD</a></td>                     
-                    </tr>
+                <tr>
+                    <td>{{ meal }}</td>
+                    <td>{% if meal.price_s != None %}{{ meal.price_s }} ${% endif %}</td>
+                    <td>{% if meal.price_l != None %}{{ meal.price_l }} ${% endif %}</td>
+                    <td><a class="btn btn-primary" href="{{ meal.get_absolute_url }}">Add to cart</a></td>
+                </tr>
+                {% if meal.toppings_are_available == True %}
+                    {% for top in sub_toppings %}
+                        <tr>
+                            <td>{{ top }}</td>
+                            <td>{% if meal.price_s != None %}+ 0.50 ${% endif %}</td>
+                            <td>{% if meal.price_l != None %}+ 0.50 ${% endif %}</td>
+                        </tr>
+                    {% endfor %}
                 {% endif %}
             {% endfor %}
+            {% if category == "Subs" %}
+            <tr>
+                <td>Extra Cheese on any sub</td>
+                <td>+ 0.50 $</td>
+                <td>+ 0.50 $</td>
+            </tr>
+            {% endif %}
+        </table>
+        {% if category == "RegularPizzas" %}
+             <h1>PizzaToppings</h1>
+             <table class="table">
+             {% for topping in pizza_toppings %}
+                <tr>
+                    <td>{{ topping.name }}</td>
+                </tr>
+             {% endfor %}
+             </table>
         {% endif %}
-    </table>
+        {% endif %}
     {% endfor %}
     </div>
     {% if cart|length %}
-    <div class="col-3 bg-light">
-        <h1>Your cart:</h1>
-        <ul>
-        {% for item in cart %}
-            {% with meal=item.meal %}
-            <li>{{ item.quantity }} x {{ meal.name }} {{ meal.size }}</li>
-        {% endwith %}
-        {% endfor %}
-        </ul>
-        <p>Total price: {{ cart.get_total_price }} $</p>
-        <a class="btn btn-primary" href="{% url "cart:cart_detail" %}">Order</a>
-    </div>
+        <div class="col-3 bg-light">
+            <h1>Your cart:</h1>
+            <ul>
+            {% for item in cart %}
+                <li>{{ item.quantity }} x {{ item.meal }} </li>
+            {% endfor %}
+            </ul>
+            <p>Total price: {{ cart.get_total_price }} $</p>
+        </div>
     {% endif %}    
 </div>
-
 {% endblock %}

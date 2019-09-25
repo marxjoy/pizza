@@ -16,15 +16,13 @@ class Order(models.Model):
         return 'Order {}'.format(self.id)
     
     def get_total_cost(self):
-        return sum(item.get_cost() for item in self.items.all())
+        return sum([item.price * item.quantity for item in self.items.all()])
     
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,
                               related_name='items',
                               on_delete=models.CASCADE)
-    meal = models.ForeignKey(Meal,
-                             related_name='order_items',
-                             on_delete=models.CASCADE)
+    meal = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10, 
                                 decimal_places=2)
     quantity = models.PositiveIntegerField(default=1)
@@ -36,11 +34,6 @@ class OrderItem(models.Model):
         return self.price * self.quantity
     
 
-class OrderItemAdditive(models.Model):
-    meal = models.ForeignKey(OrderItem,
-                             related_name='additive',
-                            on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
     
     
     

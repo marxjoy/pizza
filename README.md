@@ -11,6 +11,7 @@ Django Project3 from CS50 Web Programming
 with Python and JavaScript Course. 
 * [The content of task](https://docs.cs50.net/web/2019/x/projects/3/project3.html)
 * [Pizza place](http://www.pinocchiospizza.net/menu.html)
+* [Site presentation on Youtube](https://www.youtube.com/watch?v=vmScLPTQgL4&t=43s)
 
 
 

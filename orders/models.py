@@ -1,5 +1,4 @@
 from django.db import models
-from menu.models import Meal
 from django.contrib.auth.models import User
 
 class Order(models.Model):
@@ -13,10 +12,10 @@ class Order(models.Model):
         ordering = ('-created',)
     
     def __str__(self):
-        return 'Order {}'.format(self.id)
+        return f"Order {self.id}"
     
     def get_total_cost(self):
-        return sum([item.price * item.quantity for item in self.items.all()])
+        return sum(item.get_cost() for item in self.items)
     
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,
@@ -28,7 +27,7 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     
     def __str__(self):
-        return '{}'.format(self.id)
+        return self.id
     
     def get_cost(self):
         return self.price * self.quantity

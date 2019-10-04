@@ -3,6 +3,7 @@ from .forms import UserRegistrationForm, UserEditForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+
 def register(request):
     """
     Register new User view
@@ -24,6 +25,7 @@ def register(request):
     return render(request,
                  'register/register.html',
                  {'user_form': user_form})
+
 
 @login_required
 def edit(request):

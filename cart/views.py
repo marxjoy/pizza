@@ -4,6 +4,7 @@ from .cart import Cart
 from django.contrib.auth.decorators import login_required
 from decimal import Decimal
 
+
 @login_required
 def cart_add(request):
     cart = Cart(request)
@@ -44,12 +45,14 @@ def cart_add(request):
     cart.add(cart_item.id)
     return redirect('cart:cart_detail')
 
+
 @login_required
 def cart_remove(request, meal_id):
     cart = Cart(request)
     meal = get_object_or_404(CartItem, id=meal_id)
     cart.remove(meal.id)
     return redirect('cart:cart_detail')
+
 
 @login_required
 def cart_detail(request):

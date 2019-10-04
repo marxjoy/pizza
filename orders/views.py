@@ -4,6 +4,7 @@ from cart.cart import Cart
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def order_create(request):
     cart = Cart(request)
@@ -19,6 +20,7 @@ def order_create(request):
     return render(request,
                   'orders/order/created.html',
                   {'order': order})
+
 
 @login_required
 def order_status(request):

@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 import re
 
+
 class Meal(models.Model):
     name = models.CharField(max_length=200,
                             db_index=True)
@@ -21,23 +22,34 @@ class Meal(models.Model):
 
     class Meta:
         index_together = (('id', 'slug'),)
-        
+
+
     def __str__(self):
         return self.name
 
+
     def category(self):
+        '''
+        Gets category name based on Class Name
+        :return:
+        '''
         return re.sub(r'([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))',
                                   r'\1 ', self.__class__.__name__)
-    
+
+
     def get_absolute_url(self):
         return reverse('menu:meal_detail', args=[self.id, self.slug])
+
 
 
 class PizzaTopping(models.Model):
     name = models.CharField(max_length=200,
                             db_index=True)
+
+
     def __str__(self):
         return self.name
+
 
 
 class SubTopping(models.Model):
@@ -63,8 +75,10 @@ class Sub(Meal):
 class Pasta(Meal):
     pass
 
+
 class Salad(Meal):
     pass
+
 
 class DinnerPlatter(Meal):
     pass

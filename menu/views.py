@@ -5,8 +5,10 @@ from .forms import MealQuantityForm, ExtraCheeseOnSubForm, MealSizeForm, \
     PizzaToppingForm, SubToppingForm
 import re
 
+
 meal_categories = [SicilianPizza, RegularPizza, DinnerPlatter, Salad, \
                        Sub, Pasta]
+
 
 def meal_list(request):
     meals_by_categories = {re.sub(r'([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))',
@@ -19,6 +21,7 @@ def meal_list(request):
                    'sub_toppings': SubTopping.objects.all(),
                   }
                  )
+
 
 def meal_detail(request, meal_id, meal_slug):
     for meal_category in meal_categories:

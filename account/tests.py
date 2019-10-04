@@ -1,7 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import resolve, reverse
-from django.test.utils import setup_test_environment, teardown_test_environment
 from django.test import Client
 
 class test_account_module(TestCase):
@@ -26,6 +25,7 @@ class test_account_module(TestCase):
     def tearDown(self):
         pass
 
+
     def test_sample_user_exist(self):
         user = User.objects.get(username=self.sample_user['username'])
         self.assertEqual(user.username, self.sample_user['username'])
@@ -36,27 +36,33 @@ class test_account_module(TestCase):
     def test_view_register_resolves(self):
         resolver = resolve('/account/register/')
         self.assertEqual(resolver.view_name, 'register')
-        
+
+
     def test_response_for_account_register_url(self):
         response = self.client.get('/account/register/')
         self.assertEqual(response.status_code, 200)
-    
+
+
     def test_response_for_account_edit_url(self):
         response = self.client.get('/account/edit/')
         self.assertEqual(response.status_code, 302)
-        
+
+
     def test_response_for_account_login_url(self):
         response = self.client.get('/account/login/')
         self.assertEqual(response.status_code, 200)
-        
+
+
     def test_register_reverse(self):
         response = self.client.get(reverse('register'))
         self.assertEqual(response.status_code, 200)
-        
+
+
     def test_login_reverse(self):
         response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
-        
+
+
     def test_login_content(self):
         response = self.client.get(reverse('login'))
         self.assertIn(b'Login', response.content)
